@@ -10,6 +10,8 @@ gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'mongoid-rspec'
+  gem 'database_cleaner'
 end
 
 
