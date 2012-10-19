@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'mongoid'
-gem 'mongoid-rspec'
 gem 'bootstrap-sass'
 
 # Bundle edge Rails instead:
