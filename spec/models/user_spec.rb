@@ -10,6 +10,9 @@ describe User do
   
   it { should respond_to(:name) }
   it { should respond_to(:email) }
+  it { should respond_to(:password)}
+  it { should respond_to(:password_confirmation)}
+  it { should respond_to(:remember_me)}
   
   it { should be_valid }
   
@@ -33,15 +36,15 @@ describe User do
     end
   end
   
-  describe "when email format is valid" do
-    it "should be invalid" do
-      addresses = %w[user@foo.COM A_US-ER@f.b.org frst.1st@foo.jp a+b@baz.cn]
-      addresses.each do |valid_address|
-        @user.email = valid_address
-        @user.should be_valid
-      end
-    end
-  end
+  # describe "when email format is valid" do
+    # it "should be valid" do
+      # addresses = %w[user@foo.COM A_US-ER@f.b.org frst.1st@foo.jp a+b@baz.cn]
+      # addresses.each do |valid_address|
+        # @user.email = valid_address
+        # @user.should be_valid
+      # end
+    # end
+  # end
   
   describe "when email address is already taken" do
     before do
@@ -51,5 +54,20 @@ describe User do
     end
     
     it { should_not be_valid }
+  end
+  
+  describe "when password is no present" do
+    before { @user.password = @user.password_confirmation = " "}
+    it { should_not be_valid }
   end  
+  
+  describe "when password doesn't match confirmation" do
+    before { @user.password_confirmation = "mismatch"}
+    it { should_not be_valid}
+  end
+  
+  describe "when password is nil" do
+    before { @user.password_confirmation = nil }
+    it { should_not be_valid }
+  end
 end

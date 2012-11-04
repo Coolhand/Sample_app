@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 gem 'mongoid'
 gem 'bson_ext'
 gem 'bootstrap-sass'
+gem 'devise'
 
 
 # Bundle edge Rails instead:
@@ -13,6 +14,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'mongoid-rspec'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end
 
 
