@@ -2,3 +2,8 @@ Partials
 This allows for me to take sections of html that I want to be constant across the site and put them in their own file to keep
 things less crowded. The file name should always start with a "_" example 
 
+Test User
+test@example.com
+foobar
+foobar
+5096eb1acc6763ac14000001
