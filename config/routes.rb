@@ -1,10 +1,16 @@
 SampleApp::Application.routes.draw do
   devise_for :users
   resources :users
+  
+  authenticated :user do
+    root :to => 'static_pages#home'
+  end
 
   root to: 'static_pages#home'
   
-  match '/signup',    to: 'users#new'
+  devise_scope :user do
+  match '/signup',    to: 'devise/registrations#new'
+  end
   
   match '/help',      to: 'static_pages#help'
   match '/about',     to: 'static_pages#about'

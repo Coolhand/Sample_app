@@ -44,6 +44,8 @@ class User
   field :email, type: String
   index({ email: 1 }, { unique: true })
   
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  
   before_save { |user| user.email = email.downcase }
   
   validates(:name, presence: true, length: { maximum: 50 })
