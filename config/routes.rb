@@ -10,6 +10,7 @@ SampleApp::Application.routes.draw do
   
   devise_scope :user do
   match '/signup',    to: 'devise/registrations#new'
+  match '/sign_in',    to: 'devise/sessions#new'
   end
   
   match '/help',      to: 'static_pages#help'
