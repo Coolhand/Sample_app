@@ -1,24 +1,16 @@
 SampleApp::Application.routes.draw do
-  devise_for :users
+  devise_for :users, path_names: {sign_in: "login"}
   resources :users
-  
-  authenticated :user do
-    root :to => 'static_pages#home'
-  end
 
   root to: 'static_pages#home'
-  
-  devise_scope :user do
-  match '/signup',    to: 'devise/registrations#new'
-  match '/sign_in',    to: 'devise/sessions#new'
-  end
+
   
   match '/help',      to: 'static_pages#help'
   match '/about',     to: 'static_pages#about'
   match '/contact',   to: 'static_pages#contact'
-  
-  
+  match '/logout',    to:  'devise/session#sign_out'
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
